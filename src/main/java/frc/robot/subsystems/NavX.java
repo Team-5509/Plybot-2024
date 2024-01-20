@@ -15,6 +15,7 @@ package frc.robot.subsystems;
 
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.SerialPort;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.kauailabs.navx.frc.AHRS;
@@ -39,9 +40,18 @@ public class NavX extends SubsystemBase {
     /**
     *
     */
-    private AHRS ahrs = new AHRS();
+    private AHRS ahrs = new AHRS(SerialPort.Port.kUSB);
+
+    public void reset(){
+        ahrs.reset();
+    }
 
     public void displayAxis(){
+        // if (ahrs.isConnected()) {
+        //     double yaw = ahrs.getYaw();
+        //     while (yaw.around(0.0, 1.0)) {
+        //         ahrs.reset();
+        //     }
         SmartDashboard.putNumber("yaw", ahrs.getYaw());
         SmartDashboard.putNumber("pitch", ahrs.getPitch());
         SmartDashboard.putNumber("roll", ahrs.getRoll());
