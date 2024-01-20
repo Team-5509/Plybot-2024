@@ -73,7 +73,7 @@ public class HaloDrive extends CommandBase {
         y = Math.pow(y,delinearization);
         rotation = Math.pow(rotation,delinearization);
         
-        
+         
     }
 
     // Called once the command ends or is interrupted.
