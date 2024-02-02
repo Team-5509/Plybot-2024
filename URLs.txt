@@ -1,0 +1,4 @@
+For "swerve wiggle" debugging:
+https://www.chiefdelphi.com/t/swerve-drive-issues/392321
+https://www.chiefdelphi.com/t/swerve-wheels-not-rotating-to-correct-values/405413/10
+https://www.chiefdelphi.com/t/swerve-drive-diagnosing-an-issue/397969
