@@ -58,7 +58,25 @@ public class GetHeading extends Command {
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-        SmartDashboard.putNumber("tuv",  NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0));
+        //Print degrees away from April Tag
+        //Negative: April tag to left
+        //Positive: April tag to right
+        SmartDashboard.putNumber("Degree: ",  NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0));
+        double degree = NetworkTableInstance.getDefault().getTable("limelight").getEntry("tx").getDouble(0);
+        //Determines if the degree distance is in a range close enough to center
+        int range = 7;
+        if(degree < -range){
+            //April Tag is left of center
+            //motor turn right
+            SmartDashboard.putBoolean("Is Centered: ", false);
+        }   else if(degree > range){
+            //April Tag is right of center
+            //motor turn left
+            SmartDashboard.putBoolean("Is Centered: ", false);
+        }   else{
+            //Centered!! Yippie!!
+            SmartDashboard.putBoolean("Is Centered: ", true);
+        }
 
         m_navX.displayAxis();
     }
